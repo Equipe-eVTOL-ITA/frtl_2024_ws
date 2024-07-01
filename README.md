@@ -2,7 +2,7 @@
 
 Vamos fazer o setup dos pacotes necessários para enviar comandos de offboard control para o drone no Gazebo utilizando PX4-Autopilot, ROS 2 e o protocolo uXRCE-DDS.
 
-### Pacotes
+### Explicando o que é cada pacote
 
 - **PX4-Autopilot**: é o mesmo firmware de PX4 1.14 que roda na PixHawk. Por default, esse pacote também baixa o Gazebo.
 
@@ -18,7 +18,7 @@ Vamos fazer o setup dos pacotes necessários para enviar comandos de offboard co
 
 - **simulation**: Repositório com modelos de mundo e configurações do drone para a simulação.
 
-### Estrutura dos Folders
+### Explicando a estrutura do workspace
 
 ```
 home/
@@ -39,10 +39,27 @@ home/
 
 - **Sistema Operacional**: Ubuntu 22.04
 - **Dependências**:
-  - Git
+  - Github CLI (Configure aqui)
   - CMake
   - Python 3
   - Pip
+
+### Configurando o GitHub
+
+- Baixando gh:
+    ```bash
+    (type -p wget >/dev/null || (sudo apt update && sudo apt-get install wget -y)) \
+    && sudo mkdir -p -m 755 /etc/apt/keyrings \
+    && wget -qO- https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo tee /etc/apt/keyrings/githubcli-archive-keyring.gpg > /dev/null \
+    && sudo chmod go+r /etc/apt/keyrings/githubcli-archive-keyring.gpg \
+    && echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null \
+    && sudo apt update \
+    && sudo apt install gh -y
+    ```
+- gh auth login: rode `gh auth login`, depois siga os passos selecionando HTTPS. 
+
+- Obs: certifique-se de que você tem acesso ao repositório da eVTOL no Github.
+
 
 ## Setup do Ambiente
 
