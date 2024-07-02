@@ -1,0 +1,52 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        // Simulate task
+        {
+            "label": "simulate",
+            "detail": "Launch Gazebo Simulation",
+            "type": "shell",
+            "command": "./tasks/simulate.sh ${input:camera}",
+            "problemMatcher": []
+        },
+        // Agent task
+        {
+            "label": "agent",
+            "detail": "Launch Micro XRCE Agent",
+            "type": "shell",
+            "command": "./tasks/agent.sh",
+            "problemMatcher": []
+        },
+        // Build task
+        {
+            "label": "build",
+            "detail": "Build workspace (default)",
+            "type": "shell",
+            "command": "./tasks/build.sh",
+            "problemMatcher": []
+        },
+        // Setup task
+        {
+            "label": "setup",
+            "detail": "Set up the workspace",
+            "type": "shell",
+            "command": "./tasks/setup.sh",
+            "problemMatcher": []
+        },
+    ],
+    "inputs": [
+        {
+            "id" : "camera",
+            "description": "Choose between simulate with or without camera.",
+            "type": "pickString",
+            "options": [
+                "\"com camera\"",
+                "\"sem camera\""
+            ],
+            "default": "com camera"
+        }
+
+    ]
+}

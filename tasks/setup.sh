@@ -51,6 +51,13 @@ else
     echo "simulation directory already exists. Skipping clone."
 fi
 
+#ros_gz
+if [ ! -d "$SRC_DIR/ros_gz" ]; then
+    sudo apt-get install ros-humble-ros-gzgarden
+else
+    echo "ros_gz directory already exists. Skipping clone."
+fi
+
 # Build PX4 and PX4 ROS 2 packages
 cd $WORKSPACE_DIR
 source /opt/ros/humble/setup.bash
