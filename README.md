@@ -138,24 +138,17 @@ make px4_sitl
 
 O script `setup.sh` fará o download dos repositórios necessários, além de buildar o workspace todo.
 
-```sh
-# Navegar para o diretório onde está o script
-cd ~/frtl_2024_ws/tasks
-# Tornar o script executável
-chmod +x setup.sh
-# Executar o script
-./setup.sh
-```
+ - Execute a task Setup.
 
-## Rodando a Simulação
+  - Obs: para executar uma task no VSCode, `crtl+shift+P` e selecione `Tasks: run Task`.
 
-
+## Teste para ver se está tudo ok
 
 - **Primeiro terminal**: rode a simulação PX4 com Gazebo
   
   ```bash
-  cd ~/PX4-Autopilot
-  make px4_sitl gz_x500
+  export GZ_SIM_RESOURCE_PATH=/home/vinicius/PX4-Autopilot/Tools/simulation/gz
+  cd ~/PX4-Autopilot && make px4_sitl gz_x500
   ```
 
 - **Segundo terminal**: inicie o agente uXRCE-DDS
@@ -171,6 +164,14 @@ chmod +x setup.sh
   ros2 run px4_ros_com offboard_control
   ```
 
+## Rodando a simulação
+
+- Execute a task Agent
+- Execute a task Simulate
+- Abra um terminal: `source install/local_setup.bash`
+- Rode no terminal o pacote de ROS de voo autonômo: `ros2 run <nome_do_pacote> <nome_do_executavel>`
+  
+  - Ex: `ros2 run frtl_2023_fase1 fase1_safe`
 
 ## Referências
 
