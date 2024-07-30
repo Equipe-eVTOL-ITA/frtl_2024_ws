@@ -22,7 +22,7 @@ if [ ! -d "$SRC_DIR/px4_msgs" ]; then
 else
     echo "px4_msgs directory already exists. Skipping clone."
 fi
-
+    
 #json
 if [ ! -d "$SRC_DIR/json" ]; then
     git clone --branch develop https://github.com/nlohmann/json.git $SRC_DIR/json
@@ -61,5 +61,10 @@ fi
 # Build PX4 and PX4 ROS 2 packages
 cd $WORKSPACE_DIR
 source /opt/ros/humble/setup.bash
-colcon build
 
+BUILD_TYPE=RelWithDebInfo
+colcon build \
+        --symlink-install \
+        --event-handlers console_direct+ \
+        --cmake-args "-DCMAKE_BUILD_TYPE=$BUILD_TYPE" "-DCMAKE_EXPORT_COMPILE_COMMANDS=On" \
+        -Wall -Wextra -Wpedantic

@@ -1,7 +1,7 @@
-src/fsm*
-src/json*
-src/px4_msgs*
-px4_ros_com*
+src/fsm/*
+src/json/*
+src/px4_msgs/*
+src/px4_ros_com/*
 build/*
 install/*
 log/*
