@@ -171,7 +171,7 @@ O script `setup.sh` fará o download dos repositórios necessários, além de bu
 - Abra um terminal: `source install/local_setup.bash`
 - Rode no terminal o pacote de ROS de voo autonômo: `ros2 run <nome_do_pacote> <nome_do_executavel>`
   
-  - Ex: `ros2 run frtl_2023_fase1 fase1_safe`
+  - Ex: `ros2 run frtl_2024_demo takeoff_and_land`
 
 ## Referências
 

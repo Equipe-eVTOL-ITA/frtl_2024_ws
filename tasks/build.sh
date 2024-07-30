@@ -1,40 +1,55 @@
 #!/bin/bash
 set -e
 
-# Define the workspace directory
-WORKSPACE_DIR=~/frtl_2024_ws
+if [ $# -ne 1 ]; then
+    echo "Usage: $0 <targets> <parallel/sequential>"
+    exit 1
+fi
 
-# Source ROS 2 setup
-source /opt/ros/humble/setup.bash
+# Check if the argument is equal to "a"
+if [ $1 = all ]
+then
+    BUILD_PATH=""
+elif [ $1 = dependencies ]
+then
+    BUILD_PATH="--paths src/json/ src/px4_msgs/* src/px4_ros_com/*"
+elif [ $1 = frtl_2024 ]
+then
+    BUILD_PATH="--paths src/frtl_2024/*"
+elif [ $1 = fsm ]
+then
+    BUILD_PATH="--paths src/fsm/*"
+elif [ $1 = simulation ]
+then
+    BUILD_PATH="--paths src/simulation/*"
+elif [ $1 = fase1 ]
+then
+    BUILD_PATH="--paths src/frtl_2024/frtl_2023_fase1"
+elif [ $1 = fase2 ]
+then
+    BUILD_PATH="--paths src/frtl_2024/frtl_2023_fase2"
+elif [ $1 = fase3 ]
+then
+    BUILD_PATH="--paths src/frtl_2024/frtl_2023_fase3"
+elif [ $1 = fase4 ]
+then
+    BUILD_PATH="--paths src/frtl_2024/frtl_2023_fase4"
+else
+    echo "Possible options: all, dependencies, frtl_2024, fsm, simulation"
+    exit 1
+fi
 
-# Function to build packages
-build_packages() {
-    cd $WORKSPACE_DIR
-    colcon build --packages-select $@
-}
+if [ -e install/setup.bash ]
+then
+    source install/setup.bash
+else
+    source /opt/ros/humble/setup.bash
+fi
 
-while true; do
-    echo "Select an option to build:"
-    echo "1) all packages"
-    echo "2) simulation"
-    echo "3) frtl_2024"
-    echo "4) frtl_2024_fase1"
-    echo "5) frtl_2024_fase2"
-    echo "6) frtl_2024_fase3"
-    echo "7) frtl_2024_fase4"
-    read -p "" choice
-
-    case $choice in
-        1) colcon build ;;
-        2) build_packages simulation ;;
-        3) build_packages frtl_2024 ;;
-        4) build_packages frtl_2024_fase1 ;;
-        5) build_packages frtl_2024_fase2 ;;
-        6) build_packages frtl_2024_fase3 ;;
-        7) build_packages frtl_2024_fase4 ;;
-        *) echo "Invalid option. Try again." ;;
-    esac
-
-    echo "Build completed!"
-    echo
-done
+# Set the default build type
+BUILD_TYPE=RelWithDebInfo
+colcon build \
+        --symlink-install \
+        --cmake-args "-DCMAKE_BUILD_TYPE=$BUILD_TYPE" "-DCMAKE_EXPORT_COMPILE_COMMANDS=On" \
+        -Wall -Wextra -Wpedantic \
+        $BUILD_PATH

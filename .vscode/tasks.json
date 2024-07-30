@@ -24,8 +24,12 @@
             "label": "build",
             "detail": "Build workspace (default)",
             "type": "shell",
-            "command": "./tasks/build.sh",
-            "problemMatcher": []
+        "command": "./tasks/build.sh ${input:buildFolder}",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": "$gcc"
         },
         // Setup task
         {
@@ -46,7 +50,23 @@
                 "\"sem camera\""
             ],
             "default": "com camera"
+        },
+        {
+            "id" : "buildFolder",
+            "description": "Which targets to build?",
+            "type": "pickString",
+            "options": [
+                "all",
+                "frtl_2024",
+                "dependencies",
+                "fsm",
+                "simulation",
+                "fase1",
+                "fase2",
+                "fase3",
+                "fase4"
+            ],
+            "default": "all"
         }
-
     ]
 }
