@@ -24,16 +24,16 @@ then
     BUILD_PATH="--paths src/simulation/*"
 elif [ $1 = fase1 ]
 then
-    BUILD_PATH="--paths src/frtl_2024/frtl_2023_fase1"
+    BUILD_PATH="--paths src/frtl_2024/frtl_2024_fase1"
 elif [ $1 = fase2 ]
 then
-    BUILD_PATH="--paths src/frtl_2024/frtl_2023_fase2"
+    BUILD_PATH="--paths src/frtl_2024/frtl_2024_fase2"
 elif [ $1 = fase3 ]
 then
-    BUILD_PATH="--paths src/frtl_2024/frtl_2023_fase3"
+    BUILD_PATH="--paths src/frtl_2024/frtl_2024_fase3"
 elif [ $1 = fase4 ]
 then
-    BUILD_PATH="--paths src/frtl_2024/frtl_2023_fase4"
+    BUILD_PATH="--paths src/frtl_2024/frtl_2024_fase4"
 else
     echo "Possible options: all, dependencies, frtl_2024, fsm, simulation"
     exit 1
