@@ -22,6 +22,9 @@ then
 elif [ $1 = simulation ]
 then
     BUILD_PATH="--paths src/simulation/*"
+elif [ $1 = cv_utils ]
+then
+    BUILD_PATH="--paths src/frtl_2024/frtl_2024_cv_utils"    
 elif [ $1 = fase1 ]
 then
     BUILD_PATH="--paths src/frtl_2024/frtl_2024_fase1"
