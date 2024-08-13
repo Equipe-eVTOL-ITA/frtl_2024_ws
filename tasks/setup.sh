@@ -9,6 +9,9 @@ SRC_DIR=$WORKSPACE_DIR/src
 cd $WORKSPACE_DIR
 mkdir -p $SRC_DIR
 
+# Dependencies from FRTL packages
+sudo apt install ros-humble-vision-msgs
+
 # px4_ros_com
 if [ ! -d "$SRC_DIR/px4_ros_com" ]; then
     git clone --recursive https://github.com/PX4/px4_ros_com.git $SRC_DIR/px4_ros_com
