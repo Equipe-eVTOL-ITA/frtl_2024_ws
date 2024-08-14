@@ -82,11 +82,11 @@ sudo apt install libfuse2 -y
 sudo apt install libxcb-xinerama0 libxkbcommon-x11-0 libxcb-cursor0 -y
 ```
 
-2. Faça logout e login para valer as mudanças.
+2. **Faça logout e login** para valer as mudanças.
 
 3.  Download o [QGroundControl.AppImage](https://d176tv9ibo4jno.cloudfront.net/latest/QGroundControl.AppImage)
 
-4. Rode no terminal:
+4. Rode no terminal, na pasta em que está o download (`cd ~/Downloads`):
     ```bash
     chmod +x ./QGroundControl.AppImage
     ./QGroundControl.AppImage
@@ -136,11 +136,19 @@ make px4_sitl
 
 ### 6. Setup do frtl_2024_ws
 
+- Primeiramente, clone o repositório `frtl_2024_ws`:
+
+  ```bash
+  cd ~
+  git clone https://github.com/Equipe-eVTOL-ITA/frtl_2024_ws.git
+  ```
+
+- Abra esse repositório no VS Code.
+
+ - Execute a task Setup (`crtl+shift+P` e selecione `Tasks: run Task`).
+
 O script `setup.sh` fará o download dos repositórios necessários, além de buildar o workspace todo.
 
- - Execute a task Setup.
-
-  - Obs: para executar uma task no VSCode, `crtl+shift+P` e selecione `Tasks: run Task`.
 
 ## Teste para ver se está tudo ok
 
@@ -171,7 +179,7 @@ O script `setup.sh` fará o download dos repositórios necessários, além de bu
 - Abra um terminal: `source install/local_setup.bash`
 - Rode no terminal o pacote de ROS de voo autonômo: `ros2 run <nome_do_pacote> <nome_do_executavel>`
   
-  - Ex: `ros2 run frtl_2024_demo takeoff_and_land`
+  - Ex: `ros2 run frtl_2024_fase1 fase1_dummy`
 
 ## Referências
 
