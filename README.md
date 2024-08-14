@@ -168,6 +168,7 @@ O script `setup.sh` fará o download dos repositórios necessários, além de bu
 - **Terceiro terminal**: rode o pacote de ROS 2 que você quiser. Um exemplo:
   
   ```bash
+  source /opt/ros/humble/setup.bash
   source install/local_setup.bash
   ros2 run px4_ros_com offboard_control
   ```
@@ -176,10 +177,31 @@ O script `setup.sh` fará o download dos repositórios necessários, além de bu
 
 - Execute a task Agent
 - Execute a task Simulate
-- Abra um terminal: `source install/local_setup.bash`
-- Rode no terminal o pacote de ROS de voo autonômo: `ros2 run <nome_do_pacote> <nome_do_executavel>`
+- Abra um terminal: 
+  ```bash
+  #Sempre importar o ros2 para o terminal
+  source /opt/ros/humble/setup.bash && source install/local_setup.bash
+
+  #Rodar o no de ros2
+  ros2 run <nome_do_pacote> <nome_do_executavel>
+  ```
   
   - Ex: `ros2 run frtl_2024_fase1 fase1_dummy`
+
+## Yolo Classifier
+
+A classe YOLO é importada do Ultralytics. Se você quiser rodar a classificação por Yolo, você vai precisar baixar os seguintes pacotes:
+
+```bash
+pip uninstall numpy && pip install numpy==1.26.4
+pip install ultralytics
+```
+
+Depois disso, basta:
+
+```bash
+python3 src/frtl_2024/frtl_2024_cv_utils/python_modules/yolo_classifier.py
+```
 
 ## Referências
 
