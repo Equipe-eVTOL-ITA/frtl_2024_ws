@@ -68,7 +68,7 @@ home/
 ```sh
 sudo apt update
 sudo apt install -y git cmake python3-colcon-common-extensions
-pip install --user -U empy==3.3.4 pyros-genmsg setuptools
+pip install --user -U empy==3.3.4 pyros-genmsg setuptools==59.6.0
 ```
 
 ### 2. Instalar QGroundControl
