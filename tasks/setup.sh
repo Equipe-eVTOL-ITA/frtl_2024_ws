@@ -61,6 +61,27 @@ else
     echo "ros_gz directory already exists. Skipping clone."
 fi
 
+#camera_publisher
+if [ ! -d "$SRC_DIR/camera_publisher" ]; then
+    git clone https://github.com/Equipe-eVTOL-ITA/camera_publisher.git
+else
+    echo "camera_publisher directory already exists. Skipping clone."
+fi
+
+#gesture_classifier
+if [ ! -d "$SRC_DIR/gesture_classifier" ]; then
+    git clone https://github.com/Equipe-eVTOL-ITA/gesture_classifier.git
+else
+    echo "gesture_classifier directory already exists. Skipping clone."
+fi
+
+#gesture_control
+if [ ! -d "$SRC_DIR/gesture_control" ]; then
+    git clone https://github.com/Equipe-eVTOL-ITA/gesture_control.git
+else
+    echo "gesture_control directory already exists. Skipping clone."
+fi
+
 # Build PX4 and PX4 ROS 2 packages
 cd $WORKSPACE_DIR
 source /opt/ros/humble/setup.bash
