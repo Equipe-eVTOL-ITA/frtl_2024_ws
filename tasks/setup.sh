@@ -14,14 +14,14 @@ sudo apt install ros-humble-vision-msgs
 
 # px4_ros_com
 if [ ! -d "$SRC_DIR/px4_ros_com" ]; then
-    git clone --recursive https://github.com/PX4/px4_ros_com.git $SRC_DIR/px4_ros_com
+    git clone --branch release/v1.14 --recursive https://github.com/PX4/px4_ros_com.git $SRC_DIR/px4_ros_com
 else
     echo "px4_ros_com directory already exists. Skipping clone."
 fi
 
 #px4_msgs
 if [ ! -d "$SRC_DIR/px4_msgs" ]; then
-    git clone --recursive https://github.com/PX4/px4_msgs.git $SRC_DIR/px4_msgs
+    git clone --branch release/1.14 --recursive https://github.com/PX4/px4_msgs.git $SRC_DIR/px4_msgs
 else
     echo "px4_msgs directory already exists. Skipping clone."
 fi
