@@ -6,3 +6,4 @@ build/
 install/
 log/
 gazebo_models/
+QGroundControl.AppImage

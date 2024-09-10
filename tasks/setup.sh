@@ -47,20 +47,6 @@ else
     echo "frtl_2024 directory already exists. Skipping clone."
 fi
 
-#simulation
-if [ ! -d "$SRC_DIR/simulation" ]; then
-    git clone https://github.com/Equipe-eVTOL-ITA/simulation.git $SRC_DIR/simulation
-else
-    echo "simulation directory already exists. Skipping clone."
-fi
-
-#ros_gz
-if [ ! -d "$SRC_DIR/ros_gz" ]; then
-    sudo apt-get install ros-humble-ros-gzgarden
-else
-    echo "ros_gz directory already exists. Skipping clone."
-fi
-
 #camera_publisher
 if [ ! -d "$SRC_DIR/camera_publisher" ]; then
     git clone https://github.com/Equipe-eVTOL-ITA/camera_publisher.git
@@ -81,6 +67,10 @@ if [ ! -d "$SRC_DIR/gesture_control" ]; then
 else
     echo "gesture_control directory already exists. Skipping clone."
 fi
+
+# ROS2 Humble <--> Gazebo Garden communication
+sudo apt-get remove ros-humble-ros-gz*
+sudo apt-get install ros-humble-ros-gzgarden
 
 # Build PX4 and PX4 ROS 2 packages
 cd $WORKSPACE_DIR

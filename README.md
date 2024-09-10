@@ -128,7 +128,7 @@ sudo ldconfig /usr/local/lib/
 
 ```sh
 cd ~
-git clone --branch v1.14.2 --recursive https://github.com/PX4/PX4-Autopilot.git
+git clone https://github.com/Equipe-eVTOL-ITA/PX4-Autopilot.git
 bash ./PX4-Autopilot/Tools/setup/ubuntu.sh
 cd PX4-Autopilot/
 make px4_sitl

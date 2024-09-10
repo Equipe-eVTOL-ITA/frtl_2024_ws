@@ -8,8 +8,22 @@
             "label": "simulate",
             "detail": "Launch Gazebo Simulation",
             "type": "shell",
-            "command": "./tasks/simulate.sh ${input:camera}",
+            "command": "./tasks/simulate.sh ${input:sim_world}",
             "problemMatcher": []
+        },
+        // Image Bridge task
+        {
+            "label": "image bridge",
+            "type": "shell",
+            "command": "./tasks/image_bridge.sh",
+            "problemMatcher": [],
+            "detail": "Launch ros_gz_image bridge"
+        },
+        // Compound task for simulate and image bridge
+        {
+            "label": "simulate & image bridge",
+            "dependsOn": ["simulate", "image bridge"],
+            "detail": "Launch both the simulation and image bridge"
         },
         // Agent task
         {
@@ -42,14 +56,17 @@
     ],
     "inputs": [
         {
-            "id" : "camera",
-            "description": "Choose between simulate with or without camera.",
+            "id" : "sim_world",
+            "description": "Choose World to launch from",
             "type": "pickString",
             "options": [
-                "\"com camera\"",
-                "\"sem camera\""
+                "fase1",
+                "fase2",
+                "fase3",
+                "fase4",
+                "empty"
             ],
-            "default": "com camera"
+            "default": "fase1"
         },
         {
             "id" : "buildFolder",
@@ -59,8 +76,7 @@
                 "all",
                 "frtl_2024",
                 "dependencies",
-                "fsm",
-                "simulation",
+                "gesture_packages (camera publisher + gesture classifier)",
                 "cv_utils",
                 "fase1",
                 "fase2",
