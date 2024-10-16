@@ -17,7 +17,7 @@ then
     BUILD_PATH="--paths src/custom_msgs/*"
 elif [ $1 = gesture_packages ]
 then
-    BUILD_PATH="--paths src/camera_publisher/* src/gesture_classifier/*"
+    BUILD_PATH="--paths src/camera_publisher src/gesture_classifier"
 elif [ $1 = frtl_2024 ]
 then
     BUILD_PATH="--paths src/frtl_2024/*"

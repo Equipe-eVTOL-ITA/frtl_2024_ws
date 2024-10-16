@@ -3,7 +3,6 @@
     // for the documentation about the tasks.json format
     "version": "2.0.0",
     "tasks": [
-        // Simulate task
         {
             "label": "simulate",
             "detail": "Launch Gazebo Simulation",
@@ -11,7 +10,6 @@
             "command": "./tasks/simulate.sh ${input:sim_world}",
             "problemMatcher": []
         },
-        // Image Bridge task
         {
             "label": "image bridge",
             "type": "shell",
@@ -19,13 +17,16 @@
             "problemMatcher": [],
             "detail": "Launch ros_gz_image bridge"
         },
-        // Compound task for simulate and image bridge
         {
-            "label": "simulate & image bridge",
-            "dependsOn": ["simulate", "image bridge"],
-            "detail": "Launch both the simulation and image bridge"
+            "label": "simulate & image bridge & agent",
+            "dependsOn": [
+                "simulate",
+                "image bridge",
+                "agent"
+            ],
+            "detail": "Launch simulation, gz-ro2 image bridge and uxrce-dds agent",
+            "problemMatcher": []
         },
-        // Agent task
         {
             "label": "agent",
             "detail": "Launch Micro XRCE Agent",
@@ -33,26 +34,24 @@
             "command": "./tasks/agent.sh",
             "problemMatcher": []
         },
-        // Build task
         {
             "label": "build",
             "detail": "Build workspace (default)",
             "type": "shell",
-        "command": "./tasks/build.sh ${input:buildFolder}",
+            "command": "./tasks/build.sh ${input:buildFolder}",
             "group": {
                 "kind": "build",
                 "isDefault": true
             },
             "problemMatcher": "$gcc"
         },
-        // Setup task
         {
             "label": "setup",
             "detail": "Set up the workspace",
             "type": "shell",
             "command": "./tasks/setup.sh",
             "problemMatcher": []
-        },
+        }
     ],
     "inputs": [
         {
@@ -64,7 +63,7 @@
                 "fase2",
                 "fase3",
                 "fase4",
-                "empty"
+                "default"
             ],
             "default": "fase1"
         },
@@ -76,7 +75,7 @@
                 "all",
                 "frtl_2024",
                 "dependencies",
-                "gesture_packages (camera publisher + gesture classifier)",
+                "gesture_packages",
                 "cv_utils",
                 "fase1",
                 "fase2",
