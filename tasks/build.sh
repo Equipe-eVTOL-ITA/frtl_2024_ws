@@ -14,7 +14,7 @@ then
     BUILD_PATH="--paths src/json/ src/px4_msgs/* src/px4_ros_com/* fsm/*"
 elif [ $1 = custom_msgs ]
 then
-    BUILD_PATH="--paths src/custom_msgs/*"
+    BUILD_PATH="--paths src/custom_msgs"
 elif [ $1 = gesture_packages ]
 then
     BUILD_PATH="--paths src/camera_publisher src/gesture_classifier"

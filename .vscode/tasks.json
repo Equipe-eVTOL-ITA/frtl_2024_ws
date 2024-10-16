@@ -76,6 +76,7 @@
                 "frtl_2024",
                 "dependencies",
                 "gesture_packages",
+                "custom_msgs",
                 "cv_utils",
                 "fase1",
                 "fase2",

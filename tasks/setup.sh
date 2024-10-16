@@ -68,6 +68,13 @@ else
     echo "gesture_control directory already exists. Skipping clone."
 fi
 
+#custom_msgs
+if [ ! -d "$SRC_DIR/custom_msgs" ]; then
+    git clone https://github.com/Equipe-eVTOL-ITA/custom_msgs.git
+else
+    echo "custom_msgs directory already exists. Skipping clone."
+fi
+
 # ROS2 Humble <--> Gazebo Garden communication
 sudo apt-get remove ros-humble-ros-gz*
 sudo apt-get install ros-humble-ros-gzgarden
