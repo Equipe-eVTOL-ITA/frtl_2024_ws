@@ -11,7 +11,7 @@ then
     BUILD_PATH=""
 elif [ $1 = dependencies ]
 then
-    BUILD_PATH="--paths src/json/ src/px4_msgs/* src/px4_ros_com/* fsm/*"
+    BUILD_PATH="--paths src/px4_msgs/* src/px4_ros_com/* fsm/*"
 elif [ $1 = custom_msgs ]
 then
     BUILD_PATH="--paths src/custom_msgs"

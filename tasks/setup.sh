@@ -25,13 +25,6 @@ if [ ! -d "$SRC_DIR/px4_msgs" ]; then
 else
     echo "px4_msgs directory already exists. Skipping clone."
 fi
-    
-#json
-if [ ! -d "$SRC_DIR/json" ]; then
-    git clone --branch develop https://github.com/nlohmann/json.git $SRC_DIR/json
-else
-    echo "json directory already exists. Skipping clone."
-fi
 
 #fsm
 if [ ! -d "$SRC_DIR/fsm" ]; then
